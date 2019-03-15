@@ -3,8 +3,13 @@ from Builder import TreeBuilder
 import os
 import io
 
-#LICZBA MOZLIWYCH DECYZJI / WYNIKOW
-RESULT_NUMBER = 5
+
+#################################################################
+#                                                               #
+#                                                               #
+#        CHANGE variable RESULT_NUMBER in model module          #
+#                                                               #
+#################################################################
 
 
 
