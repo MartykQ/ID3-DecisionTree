@@ -4,10 +4,11 @@ import os
 import io
 
 
+
 #################################################################
 #                                                               #
 #                                                               #
-#        CHANGE variable RESULT_NUMBER in model module          #
+#          Zmien zmienna RESULT_NUMBER w module model           #
 #                                                               #
 #################################################################
 

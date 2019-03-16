@@ -1,7 +1,6 @@
-import model
 from graphviz import Digraph
 import uuid
-
+import model
 
 
 class TreeBuilder:

@@ -1,5 +1,4 @@
 import csv
-import io
 import math
 
 
@@ -16,6 +15,7 @@ class ModelTable:
         self.conditions = []
         self.label = ""
         self.answer = ""
+
 
 
     def GetRawData(self, plik):
@@ -193,4 +193,4 @@ class ModelTable:
             return self.data[-1][0]
 
         else:
-            print("Tabela niepodzielna nie ma odpowiedzi")
+            print("Tabela podzielna: nie ma odpowiedzi")
