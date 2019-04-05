@@ -2,7 +2,7 @@ import model
 from Builder import TreeBuilder
 import os
 import io
-
+from feature import Feature
 
 
 #################################################################
@@ -27,8 +27,10 @@ simple = model.ModelTable()
 simple.GetRawData(file)
 simple.CleanRawData()
 
-builder = TreeBuilder()
-builder.Generate(simple)
+#builder = TreeBuilder()
+#builder.Generate(simple)
+#builder.dot.render('output/round-table.gv', view=True)
 
 
-builder.dot.render('output/round-table.gv', view=True)
+args_test = ["Opady", "<15min", "tak", "0-1km", "Brak ruchu"]
+print(simple.Forward(args_test))

@@ -27,5 +27,6 @@ class TreeBuilder:
 
 
         else:
+        
             self.dot.node(id, label=table.GetAnswer())
             self.dot.edge(PARENT, id, label=question)

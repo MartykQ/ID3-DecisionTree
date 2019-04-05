@@ -1,8 +1,24 @@
 import csv
 import math
+from feature import Feature
 
 
 RESULT_NUMBER = 5
+
+f1 = Feature("dystans", ["0-1km", "1-2km", "2-3km", "3+km"])
+f2 = Feature("pogoda", ["Slonecznie", "Zachmuerzenie", "Opady"])
+f3 = Feature("Czas", ["<15min", "<30min", "powyzje 30min"])
+f4 = Feature("KKM", ["tak", "nie"])
+f5 = Feature("Ruch", ["Godziny szczytu", "Umirakowany ruch", "Brak ruchu" ])
+
+line_numbers = []
+
+
+features_list = [f1, f2, f3, f4, f5]
+for f in features_list:
+    for element in f.answers:
+        line_numbers.append(element)
+
 
 
 class ModelTable:
@@ -15,6 +31,9 @@ class ModelTable:
         self.conditions = []
         self.label = ""
         self.answer = ""
+
+        #Wnioskowania
+        self.features = {}
 
 
 
@@ -54,6 +73,9 @@ class ModelTable:
         for line in self.data:
             print(line)
 
+    def PrintRawData(self):
+        for line in self.raw_data:
+            print(line)
 
     def CalculateEntropiaRows(self):
         N = len(self.data[0])
@@ -194,3 +216,30 @@ class ModelTable:
 
         else:
             print("Tabela podzielna: nie ma odpowiedzi")
+
+
+
+    def Forward(self, features):
+        new_table = []
+        for feature in features:
+            i = line_numbers.index(feature)
+            new_table.append(self.data[i])
+        new_table.append(self.data[-1])
+
+        for line in new_table[:-1]:
+            indices = [i for i, x in enumerate(line) if x == "0"] #Wszystki indexy na ktorych 0
+            for index in reversed(indices):
+                for line in new_table:
+                    del line[index]
+
+        for line in new_table:
+            print(line)
+
+
+        flag = new_table[-1][-1]
+
+        for element in new_table[-1]:
+            if element != flag:
+                return False
+
+        return True
