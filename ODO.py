@@ -124,7 +124,8 @@ fakt19 = Fact("srodek transportu", "taxi/uber")
 fakt20 = Fact("srodek transportu", "auto")
 
 
-regula1 = Rule(fakt1, )
+regula1 = Rule(fakt1, fakt17)
+regula2 = Rule([fakt1, fakt6], fakt17)
 
 #TETUJEMY
 
