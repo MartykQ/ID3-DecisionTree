@@ -27,9 +27,9 @@ simple = model.ModelTable()
 simple.GetRawData(file)
 simple.CleanRawData()
 
-#builder = TreeBuilder()
-#builder.Generate(simple)
-#builder.dot.render('output/round-table.gv', view=True)
+builder = TreeBuilder()
+builder.Generate(simple)
+builder.dot.render('output/round-table.gv', view=True)
 
 
 args_test = ["Opady", "<15min", "tak", "0-1km", "Brak ruchu"]
